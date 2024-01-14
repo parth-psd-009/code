@@ -12,6 +12,6 @@ public class Solution {
             mid = start + (end - start) / 2;
         }
         return start;
-        
+
     }
 }
