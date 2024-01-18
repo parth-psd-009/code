@@ -31,6 +31,7 @@ class Solution {
         return sum;
     }
 
+    //
     public int daysRequired(int[] weights, int capacity) {
         int day = 1;
         int load = 0;
