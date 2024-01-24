@@ -7,37 +7,23 @@
 // @lc code=start
 // 
 
-import java.util.ArrayList;
+import java.util.Arrays;
 
 class Solution {
     public int findKthPositive(int[] arr, int k) {
-        ArrayList<Integer> missing = new ArrayList<>();
-        for (int i = 1; i < arr[arr.length - 1]; i++) {
-            if (isMissing(arr, i)) {
-                missing.add(i);
+        boolean[] isPresent = new boolean[1000];
+        Arrays.fill(isPresent, false);
+        for (int b : arr) {
+            isPresent[b] = true;
+        }
+        int ans = -1;
+        for (int i = 0, j = 0; j != k; i++) {
+            if(isPresent[i] == false){
+                ans = i;
             }
         }
-        if (missing.size() > 1) {
-            return missing.get(k - 1);
-
-        }
-        return -1;
-
+        return ans;
     }
 
-    public boolean isMissing(int[] arr, int k) {
-        int start = 0, end = arr.length - 1;
-        while (start <= end) {
-            int mid = start + (end - start) / 2;
-            if (arr[mid] == k) {
-                return false;
-            } else if (arr[mid] > k) {
-                end = mid - 1;
-            } else {
-                start = mid + 1;
-            }
-        }
-        return true;
-    }
 }
 // @lc code=end
