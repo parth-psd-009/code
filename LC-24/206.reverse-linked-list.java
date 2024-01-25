@@ -15,6 +15,12 @@
  * ListNode(int val, ListNode next) { this.val = val; this.next = next; }
  * }
  */
+
+class ListNode {
+    ListNode next;
+    ListNode data;
+}
+
 class Solution {
     public ListNode reverseList(ListNode head) {
         if (head == null || head.next == null) {
@@ -30,4 +36,5 @@ class Solution {
         return prev;
     }
 }
+
 // @lc code=end
